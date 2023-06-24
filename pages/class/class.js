@@ -4,45 +4,113 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    Categories:[{
+        "iCatId":"101",
+        "iSortOrder":"1",
+        "iSortOrsCatNameder":"手机数码",
+        "submit":[
+          {
+          "iCartId":"121",
+          "iSortOrsCatNameder":"小米手机"
+        },
+        {
+          "iCartId":"122",
+          "iSortOrsCatNameder":"华为手机"
+        },
+        {
+          "iCartId":"208",
+          "iSortOrsCatNameder":"魅族手机"
+        },
+        {
+          "iCartId":"676",
+          "iSortOrsCatNameder":"三星手机"
+        },
+      ]
+      },
+      {
+        "iCatId":"119",
+        "iSortOrder":"4",
+        "iSortOrsCatNameder":"家用电器",
+        "submit":[
+          {
+          "iCartId":"126",
+          "iSortOrsCatNameder":"电水壶"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"电饭煲"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"电磁炉"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"微波炉"
+        },
+      ]
+      },
+      {
+        "iCatId":"119",
+        "iSortOrder":"4",
+        "iSortOrsCatNameder":"运动户外",
+        "submit":[
+          {
+          "iCartId":"126",
+          "iSortOrsCatNameder":"跑步鞋"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"体育用品"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"山地车"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"跑步机"
+        },
+      ]
+      },
+      {
+        "iCatId":"119",
+        "iSortOrder":"4",
+        "iSortOrsCatNameder":"男女服饰",
+        "submit":[
+          {
+          "iCartId":"126",
+          "iSortOrsCatNameder":"早春新品"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"连衣裙"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"衬衫"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"牛仔裤"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"卫衣"
+        },
+        {
+          "iCartId":"125",
+          "iSortOrsCatNameder":"针织衫"
+        },
+      ]
+      }]
   },
   // 事件处理函数
-  bindViewTap() {
+  tapClick(e){
+    var p = e.currentTarget.id
+    console.log("/pages/productlist/productlist?id=" + p);
     wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
-  },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      url: '/pages/productlist/productlist?id=' + p,
     })
   }
 })
