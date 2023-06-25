@@ -5,7 +5,8 @@
     "pages/cart/cart",
     "pages/class/class",
     "pages/center/center",
-    "pages/productlist/productlist"
+    "pages/productlist/productlist",
+    "pages/detail/detail"
   ],
   "window":{
     "backgroundColor": "#f0f4f5",

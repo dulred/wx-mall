@@ -26,28 +26,32 @@ Page({
     "iMallId":"1000",
     "sPicLink":"/images/list/sku1.png",
     "iOriPrice":"150",
-    "iPriceReal":"113"
+    "iPriceReal":"113",
+    "_id":"1"
   },
   {
     "sDescribe":"展示专用商品2",
     "iMallId":"1001",
     "sPicLink":"/images/list/sku2.png",
     "iOriPrice":"250",
-    "iPriceReal":"213"
+    "iPriceReal":"213",
+    "_id":"1"
   },
   {
     "sDescribe":"展示专用商品3",
     "iMallId":"1000",
     "sPicLink":"/images/list/sku1.png",
     "iOriPrice":"150",
-    "iPriceReal":"113"
+    "iPriceReal":"113",
+    "_id":"1"
   },
   {
     "sDescribe":"展示专用商品4",
     "iMallId":"1001",
     "sPicLink":"/images/list/sku2.png",
     "iOriPrice":"250",
-    "iPriceReal":"213"
+    "iPriceReal":"213",
+    "_id":"1"
   }
 ]
   },
@@ -69,6 +73,11 @@ Page({
     let id = e.currentTarget.id;
     shoppingCart.init(this, id);
   },
-
+  bigImageClick (e){
+    let id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + id,
+    })
+  }
   
 })
